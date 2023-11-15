@@ -38,23 +38,20 @@ How do you know if you are at the end of a consecutive group of characters?
 
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        if len(chars) == 1:
-            return 1
-        s = ''
+        s = '' + chars[0]
         start = 0
 
         for i in range(1, len(chars)):
             if chars[start] != chars[i]:
                 if i - start > 1:
-                    s += chars[start] + str(i - start)
+                    s += str(i-start) + chars[i]
                 elif i - start == 1:
-                    s += chars[start]
+                    s += chars[i]
                 start = i
             if i == len(chars) - 1:
                 if i - start >= 1:
-                    s += chars[start] + str(i - start+1)
-                elif i - start == 0:
-                    s += chars[start]
+                    s += str(i-start+1)
+
         for i in range(len(s)):
             chars[i] = s[i]
 
