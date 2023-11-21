@@ -39,67 +39,45 @@ At most 2 * 105 calls will be made to get and put.
 
 
 class Node:
-    def __init__(self, key=None, value=None):
-        self.key = key
-        self.value = value
-
-        self.prev = None
-        self.next = None
-
-
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = Node(0, 0)
-        self.tail = Node(0, 0)
-        self.size = 0
-        self.head.next = self.tail
-        self.tail.prev = self.head
-
-    def append(self, key, value):
-        node = Node(key, value)
-
-        tail_prev = self.tail.prev
-        tail_prev.next = node
-        self.tail.prev = node
-        node.prev = tail_prev
-        node.next = self.tail
-
-        self.size += 1
-        return node
-
-    def pop(self):
-        return self.remove(self.head.next)
-
-    def remove(self, node):
-        node.prev.next = node.next
-        node.next.prev = node.prev
-        self.size -= 1
-        return node
+    def __init__(self, key, val):
+        self.key, self.val = key, val
+        self.prev = self.next = None
 
 
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.list = DoublyLinkedList()
-        self.hash = {}
+        self.cache = {}
+
+        self.left, self.right = Node(0, 0), Node(0, 0)
+        self.left.next, self.right.prev = self.right, self.left
+
+    def remove(self, node):
+        prev, nxtt = node.prev, node.next
+        prev.next, nxtt.prev = nxtt, prev
+
+    def insert(self, node):
+        prev, nxtt = self.right.prev, self.right
+        prev.next = nxtt.prev = node
+        node.next, node.prev = nxtt, prev
 
     def get(self, key: int) -> int:
-        if key in self.hash:
-            node = self.hash[key]
-            self.list.remove(node)
-            self.hash[key] = self.list.append(key, node.value)
-            return node.value
+        if key in self.cache:
+            self.remove(self.cache[key])
+            self.insert(self.cache[key])
+            return self.cache[key].val
         return -1
 
     def put(self, key: int, value: int) -> None:
-        if key in self.hash:
-            self.list.remove(self.hash[key])
-        node = self.list.append(key, value)
-        self.hash[key] = node
+        if key in self.cache:
+            self.remove(self.cache[key])
+        self.cache[key] = Node(key, value)
+        self.insert(self.cache[key])
 
-        if self.list.size > self.capacity:
-            delete = self.list.pop()
-            del self.hash[delete.key]
+        if len(self.cache) > self.capacity:
+            lru = self.left.next
+            self.remove(lru)
+            del self.cache[lru.key]
 
 
 # capacity = 2
