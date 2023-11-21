@@ -38,20 +38,73 @@ At most 2 * 105 calls will be made to get and put.
 '''
 
 
+class Node:
+    def __init__(self, key=None, value=None):
+        self.key = key
+        self.value = value
+
+        self.prev = None
+        self.next = None
+
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = Node(0, 0)
+        self.tail = Node(0, 0)
+        self.size = 0
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def append(self, key, value):
+        node = Node(key, value)
+
+        tail_prev = self.tail.prev
+        tail_prev.next = node
+        self.tail.prev = node
+        node.prev = tail_prev
+        node.next = self.tail
+
+        self.size += 1
+        return node
+
+    def pop(self):
+        return self.remove(self.head.next)
+
+    def remove(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        self.size -= 1
+        return node
+
+
 class LRUCache:
     def __init__(self, capacity: int):
-        pass
+        self.capacity = capacity
+        self.list = DoublyLinkedList()
+        self.hash = {}
 
     def get(self, key: int) -> int:
-        pass
+        if key in self.hash:
+            node = self.hash[key]
+            self.list.remove(node)
+            self.hash[key] = self.list.append(key, node.value)
+            return node.value
+        return -1
 
     def put(self, key: int, value: int) -> None:
-        pass
+        if key in self.hash:
+            self.list.remove(self.hash[key])
+        node = self.list.append(key, value)
+        self.hash[key] = node
+
+        if self.list.size > self.capacity:
+            delete = self.list.pop()
+            del self.hash[delete.key]
 
 
-capacity = int(input())
-key = int(input())
-value = int(input())
-obj = LRUCache(capacity)
-param_1 = obj.get(key)
-obj.put(key, value)
+# capacity = 2
+# key = 1
+# value = 1
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key, value)
