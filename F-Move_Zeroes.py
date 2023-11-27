@@ -1,4 +1,5 @@
 from typing import List
+from random import randint
 
 
 '''
@@ -22,3 +23,30 @@ Constraints:
 
 Follow up: Could you minimize the total number of operations done?
 '''
+
+
+class Solution:
+    def moveZeroes(self, nums: List[int]):
+        piv = 0
+
+        for i in range(1, len(nums)):
+            if nums[i] != 0:
+                if nums[piv] == 0:
+                    nums[piv] = nums[i]
+                    nums[i] = 0
+                piv += 1
+            elif nums[i] == 0:
+                if nums[piv] != 0:
+                    piv = i
+
+        return nums
+
+
+sol = Solution()
+print(sol.moveZeroes([0, 1, 0, 3, 12]))
+print(sol.moveZeroes([0]))
+print(sol.moveZeroes([0, 0, 0, 1, 0, 3, 12, 0]))
+print(sol.moveZeroes([1, 2, 4, 0, 3, 0, 12, 0]))
+ls = [randint(0, 6) for i in range(10)]
+print(ls)
+print(sol.moveZeroes(ls))
