@@ -30,14 +30,11 @@ class Solution:
         piv = 0
 
         for i in range(1, len(nums)):
-            if nums[i] != 0:
-                if nums[piv] == 0:
-                    nums[piv] = nums[i]
-                    nums[i] = 0
+            if nums[i] != 0 and nums[piv] == 0:
+                nums[piv], nums[i] = nums[i], nums[piv]
+
+            if nums[piv] != 0:
                 piv += 1
-            elif nums[i] == 0:
-                if nums[piv] != 0:
-                    piv = i
 
         return nums
 
