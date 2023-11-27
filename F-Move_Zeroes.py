@@ -25,8 +25,8 @@ Follow up: Could you minimize the total number of operations done?
 
 
 class Solution:
-    def moveZeroes(self, nums: List[int]):
-        piv = 0
+    def moveZeroes(self, nums: List[int]) -> None:
+        pointer = 0
 
         for i in range(1, len(nums)):
             if nums[i] != 0 and nums[piv] == 0:
