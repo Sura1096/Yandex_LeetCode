@@ -28,14 +28,10 @@ class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         pointer = 0
 
-        for i in range(1, len(nums)):
-            if nums[i] != 0 and nums[piv] == 0:
-                nums[piv], nums[i] = nums[i], nums[piv]
-
-            if nums[piv] != 0:
-                piv += 1
-
-        return nums
+        for cur_ind in range(len(nums)):
+            if nums[cur_ind] != 0:
+                nums[pointer], nums[cur_ind] = nums[cur_ind], nums[pointer]
+                pointer += 1
 
 
 sol = Solution()
