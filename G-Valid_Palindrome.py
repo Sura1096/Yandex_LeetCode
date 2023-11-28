@@ -31,3 +31,9 @@ s consists only of printable ASCII characters.
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         pass
+
+
+sol = Solution()
+print(sol.isPalindrome('A man, a plan, a canal: Panama'))
+print(sol.isPalindrome('race a car'))
+print(sol.isPalindrome(' '))
