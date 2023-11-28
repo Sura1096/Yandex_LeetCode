@@ -30,7 +30,9 @@ s consists only of printable ASCII characters.
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        pass
+        a = ''.join([char for char in s if char.isalnum()]).lower()
+
+        return a == a[::-1]
 
 
 sol = Solution()
