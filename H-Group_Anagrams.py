@@ -40,8 +40,16 @@ class Solution:
 
         return ''.join(lst)
 
-    def groupAnagrams(self,strs: List[str]) -> List[List[str]]:
-        pass
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        dct = {}
+        for item in strs:
+            dct[self.sort_str(item)] = dct.get(self.sort_str(item), []) + [item]
+
+        lst = []
+        for value in dct.values():
+            lst.append(value)
+
+        return lst
 
 
 sol = Solution()
