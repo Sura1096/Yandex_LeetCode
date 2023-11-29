@@ -28,6 +28,18 @@ strs[i] consists of lowercase English letters.
 
 
 class Solution:
+    def sort_str(self, string):
+        lst = [char for char in string]
+
+        for i in range(len(lst) - 1):
+            for j in range(len(lst) - i - 1):
+                if lst[j] > lst[j + 1]:
+                    temp = lst[j]
+                    lst[j] = lst[j + 1]
+                    lst[j + 1] = temp
+
+        return ''.join(lst)
+
     def groupAnagrams(self,strs: List[str]) -> List[List[str]]:
         pass
 
