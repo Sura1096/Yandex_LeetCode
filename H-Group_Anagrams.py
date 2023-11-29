@@ -30,3 +30,9 @@ strs[i] consists of lowercase English letters.
 class Solution:
     def groupAnagrams(self,strs: List[str]) -> List[List[str]]:
         pass
+
+
+sol = Solution()
+print(sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+print(sol.groupAnagrams([""]))
+print(sol.groupAnagrams(["a"]))
