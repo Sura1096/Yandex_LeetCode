@@ -29,8 +29,12 @@ Constraints:
 nums[i] is either 0 or 1.
 
 Explanation:
-Even though the condition says to delete one element, you shouldn't.
-You need to use Sliding window algorithm to complete the task.
+We are not modifying the given array. The terms "remove" and "delete" are used in the context of our sliding window, 
+not the original array.
+The array itself remains unchanged. 
+The sliding window is just a conceptual tool used in our algorithm to examine a subset of the array. 
+As we move the window through the array (by adjusting our pointers), some elements will fall outside the window, 
+but they are not removed from the array.
 '''
 
 
