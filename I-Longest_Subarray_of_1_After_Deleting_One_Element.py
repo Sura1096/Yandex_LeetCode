@@ -33,3 +33,9 @@ nums[i] is either 0 or 1.
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
         pass
+
+
+sol = Solution()
+print(sol.longestSubarray([1, 1, 0, 1]))
+print(sol.longestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]))
+print(sol.longestSubarray([1, 1, 1]))
