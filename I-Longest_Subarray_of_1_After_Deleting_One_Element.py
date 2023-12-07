@@ -33,7 +33,20 @@ nums[i] is either 0 or 1.
 
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
-        pass
+        longest_subarray = 0
+        left = 0
+        zeros = 0
+
+        for right in range(len(nums)):
+            if nums[right] == 0:
+                zeros += 1
+
+            while zeros > 1:
+                if nums[left] == 0:
+                    zeros -= 1
+                left += 1
+            longest_subarray = max(longest_subarray, right - left)
+        return longest_subarray
 
 
 sol = Solution()
