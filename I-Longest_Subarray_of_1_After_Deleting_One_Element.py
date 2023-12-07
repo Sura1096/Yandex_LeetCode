@@ -28,3 +28,8 @@ Constraints:
 1 <= nums.length <= 105
 nums[i] is either 0 or 1.
 '''
+
+
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        pass
