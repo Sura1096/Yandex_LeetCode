@@ -27,7 +27,20 @@ s consists of parentheses only '()[]{}'.
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        pass
+        pairs = {
+            '(': ')',
+            '[': ']',
+            '{': '}'
+        }
+        stack = []
+
+        for el in s:
+            if el in pairs:
+                stack.append(el)
+            elif len(stack) == 0 or el != pairs[stack.pop()]:
+                return False
+
+        return len(stack) == 0
 
 
 sol = Solution()
