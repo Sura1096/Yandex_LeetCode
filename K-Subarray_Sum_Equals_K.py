@@ -20,3 +20,8 @@ Constraints:
 -1000 <= nums[i] <= 1000
 -107 <= k <= 107
 '''
+
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        pass
