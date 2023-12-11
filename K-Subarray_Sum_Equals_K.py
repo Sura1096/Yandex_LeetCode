@@ -19,6 +19,13 @@ Constraints:
 1 <= nums.length <= 2 * 104
 -1000 <= nums[i] <= 1000
 -107 <= k <= 107
+
+Hints:
+1. Will Brute force work here? Try to optimize it.
+2. Can we optimize it by using some extra space?
+3. What about storing sum frequencies in a hash table? Will it be useful?
+4. sum(i,j)=sum(0,j)-sum(0,i), where sum(i,j) represents the sum of all the elements from index i to j-1. 
+Can we use this property to optimize it.
 '''
 
 
