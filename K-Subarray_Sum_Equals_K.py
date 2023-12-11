@@ -25,3 +25,8 @@ Constraints:
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         pass
+
+
+sol = Solution()
+print(sol.subarraySum([1, 1, 1], 2))
+print(sol.subarraySum([1, 2, 3], 3))
