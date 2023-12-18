@@ -31,7 +31,23 @@ Can we use this property to optimize it.
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        pass
+        prefix = 0
+        count = 0
+        dct = {0: 1}
+
+        for num in nums:
+            prefix += num
+
+            if prefix - k in dct:
+                count += dct[prefix - k]
+
+            if prefix not in dct:
+                dct[prefix] = 1
+
+            else:
+                dct[prefix] += 1
+
+        return count
 
 
 sol = Solution()
