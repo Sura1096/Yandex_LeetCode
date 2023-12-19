@@ -42,3 +42,6 @@ class RandomizedSet:
 
     def insert(self, val: int) -> bool:
         pass
+
+    def remove(self, val: int) -> bool:
+        pass
