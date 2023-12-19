@@ -1,3 +1,6 @@
+from random import randint
+
+
 '''
 380. Insert Delete GetRandom O(1)
 
