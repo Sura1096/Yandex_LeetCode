@@ -41,13 +41,29 @@ There will be at least one element in the data structure when getRandom is calle
 
 class RandomizedSet:
     def __init__(self):
-        pass
+        self.dct = {}
+        self.lst = []
 
     def insert(self, val: int) -> bool:
-        pass
+        if val not in self.dct:
+            self.dct[val] = len(self.lst)
+            self.lst.append(val)
+            return True
+        return False
 
     def remove(self, val: int) -> bool:
-        pass
+        if val in self.dct:
+            last_el = self.lst[-1]
+            remove_el = self.dct[val]
+
+            self.dct[last_el] = remove_el
+            self.lst[remove_el] = last_el
+            self.lst[-1] = val
+
+            self.lst.pop()
+            self.dct.pop(val)
+            return True
+        return False
 
     def getRandom(self) -> int:
-        pass
+        return choice(self.lst)
