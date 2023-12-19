@@ -45,3 +45,6 @@ class RandomizedSet:
 
     def remove(self, val: int) -> bool:
         pass
+
+    def getRandom(self) -> int:
+        pass
