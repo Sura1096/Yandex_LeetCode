@@ -31,3 +31,8 @@ Which data structure should be used to store frequencies?
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         pass
+
+
+sol = Solution()
+print(sol.checkInclusion(s1="ab", s2="eidbaooo"))
+print(sol.checkInclusion(s1="ab", s2="eidboaoo"))
