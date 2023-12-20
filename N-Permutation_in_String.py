@@ -26,3 +26,8 @@ Hints:
 Which data structure should be used to store frequencies?
 6.What about hash table? An array of size 26?
 '''
+
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        pass
