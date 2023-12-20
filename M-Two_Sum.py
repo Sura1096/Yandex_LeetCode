@@ -34,7 +34,14 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        pass
+        dct = {}
+
+        for ind in range(len(nums)):
+            diff = target - nums[ind]
+            if diff in dct:
+                return [dct[diff], ind]
+            else:
+                dct[nums[ind]] = ind
 
 
 sol = Solution()
