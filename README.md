@@ -1,4 +1,4 @@
 Yandex LeetCode tasks!
 
-This repository was created to solve algorithmic problems.
-The Yandex_LeetCode repository consists of sample exercises that can be used in an interview in Yandex.
+This repository was created to store solved algorithmic problems.
+The Yandex_LeetCode repository contains examples of exercises and their solutions that can be used during an interview in Yandex.
