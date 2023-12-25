@@ -30,7 +30,39 @@ Which data structure should be used to store frequencies?
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        pass
+        if len(s1) > len(s2):
+            return False
+
+        s1_arr, s2_arr = [0] * 26, [0] * 26
+        for i in range(len(s1)):
+            s1_arr[ord(s1[i]) - ord('a')] += 1
+            s2_arr[ord(s2[i]) - ord('a')] += 1
+
+        match_chars = 0
+        for i in range(26):
+            match_chars += 1 if s1_arr[i] == s2_arr[i] else 0
+
+        left = 0
+        for r in range(len(s1), len(s2)):
+            if match_chars == 26:
+                return True
+
+            ind = ord(s2[r]) - ord('a')
+            s2_arr[ind] += 1
+            if s1_arr[ind] == s2_arr[ind]:
+                match_chars += 1
+            elif s1_arr[ind] + 1 == s2_arr[ind]:
+                match_chars -= 1
+
+            ind = ord(s2[left]) - ord('a')
+            s2_arr[ind] -= 1
+            if s1_arr[ind] == s2_arr[ind]:
+                match_chars += 1
+            elif s1_arr[ind] - 1 == s2_arr[ind]:
+                match_chars -= 1
+
+            left += 1
+        return match_chars == 26
 
 
 sol = Solution()
