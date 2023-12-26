@@ -26,7 +26,19 @@ intervals[i].length == 2
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        pass
+        intervals.sort()
+
+        result = []
+        pointer = intervals[0]
+        for ind in range(1, len(intervals)):
+            if intervals[ind][0] <= pointer[1]:
+                pointer[1] = max(pointer[1], intervals[ind][1])
+            else:
+                result.append(pointer)
+                pointer = intervals[ind]
+        result.append(pointer)
+
+        return result
 
 
 sol = Solution()
