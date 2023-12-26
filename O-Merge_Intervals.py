@@ -27,3 +27,11 @@ intervals[i].length == 2
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         pass
+
+
+sol = Solution()
+interval1 = [[1, 3], [2, 6], [8, 10], [15, 18]]
+print(sol.merge(interval1))
+
+interval2 = [[1, 4], [4, 5]]
+print(sol.merge(interval2))
