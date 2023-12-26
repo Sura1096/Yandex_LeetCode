@@ -1,3 +1,6 @@
+from typing import List
+
+
 '''
 56. Merge Intervals
 
@@ -19,3 +22,8 @@ Constraints:
 intervals[i].length == 2
 0 <= starti <= endi <= 104
 '''
+
+
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        pass
