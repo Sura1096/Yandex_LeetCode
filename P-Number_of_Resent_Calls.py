@@ -35,10 +35,15 @@ At most 104 calls will be made to ping.
 
 class RecentCounter:
     def __init__(self):
-        pass
+        self.requests = []
 
     def ping(self, t: int) -> int:
-        pass
+        self.requests.append(t)
+
+        while self.requests[0] < t - 3000:
+            self.requests.pop(0)
+
+        return len(self.requests)
 
 
 # obj = RecentCounter()
