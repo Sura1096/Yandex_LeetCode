@@ -39,3 +39,7 @@ class RecentCounter:
 
     def ping(self, t: int) -> int:
         pass
+
+
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
