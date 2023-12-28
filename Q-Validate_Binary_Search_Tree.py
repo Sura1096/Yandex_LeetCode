@@ -35,4 +35,13 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        pass
+        def bst(root, mini=float('-inf'), maxi=float('inf')):
+            if root is None:
+                return True
+
+            if not mini < root.val < maxi:
+                return False
+
+            return (bst(root.left, mini, root.val) and bst(root.right, root.val, maxi))
+
+        return bst(root)
