@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 '''
 98. Validate Binary Search Tree
 
@@ -29,3 +32,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        pass
