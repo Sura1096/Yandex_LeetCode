@@ -43,18 +43,16 @@ In other words, performing n operations will take overall O(n) time even if one 
 
 class MyQueue:
     def __init__(self):
-        pass
+        self.list = []
 
     def push(self, x: int) -> None:
-        pass
+        self.list.append(x)
 
     def pop(self) -> int:
-        pass
+        return self.list.pop(0)
 
     def peek(self) -> int:
-        pass
+        return self.list[0]
 
     def empty(self) -> bool:
-        pass
-
-
+        return len(self.list) == 0
