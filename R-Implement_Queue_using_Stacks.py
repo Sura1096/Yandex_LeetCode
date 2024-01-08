@@ -39,3 +39,22 @@ All the calls to pop and peek are valid.
 Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity?
 In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
 '''
+
+
+class MyQueue:
+    def __init__(self):
+        pass
+
+    def push(self, x: int) -> None:
+        pass
+
+    def pop(self) -> int:
+        pass
+
+    def peek(self) -> int:
+        pass
+
+    def empty(self) -> bool:
+        pass
+
+
