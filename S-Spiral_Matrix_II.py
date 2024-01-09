@@ -17,3 +17,8 @@ Output: [[1]]
 Constraints:
 1 <= n <= 20
 '''
+
+
+class Solution:
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        pass
