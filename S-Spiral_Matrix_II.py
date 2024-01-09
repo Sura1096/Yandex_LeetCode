@@ -52,3 +52,9 @@ class Solution:
             L += 1
 
         return matrix
+
+
+ins = Solution()
+print(ins.generateMatrix(3))
+print(ins.generateMatrix(4))
+print(ins.generateMatrix(1))
