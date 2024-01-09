@@ -24,4 +24,32 @@ n == matrix[i].length
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        pass
+        lst = []
+        L = T = 0
+        R = len(matrix[0]) - 1
+        B = len(matrix) - 1
+
+        while len(lst) < len(matrix) * len(matrix[0]):
+            # See all elements at the top
+            for t in range(L, R + 1):
+                lst.append(matrix[T][t])
+            T += 1
+
+            # See all elements from right column
+            for r in range(T, B + 1):
+                lst.append(matrix[r][R])
+            R -= 1
+
+            if T <= B:
+                # See all elements at the bottom
+                for b in range(R, L - 1, -1):
+                    lst.append(matrix[B][b])
+                B -= 1
+
+            if L <= R:
+                # See all elements from left column
+                for l in range(B, T - 1, -1):
+                    lst.append(matrix[l][L])
+                L += 1
+
+        return lst
