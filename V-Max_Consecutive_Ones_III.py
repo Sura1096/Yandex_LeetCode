@@ -24,3 +24,8 @@ Constraints:
 nums[i] is either 0 or 1.
 0 <= k <= nums.length
 '''
+
+
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        pass
