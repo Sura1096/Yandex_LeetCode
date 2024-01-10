@@ -28,4 +28,21 @@ nums[i] is either 0 or 1.
 
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
-        pass
+        left, maxi, zeroes = 0, 0, 0
+
+        for right in range(len(nums)):
+            if nums[right] == 0:
+                while zeroes >= k:
+                    if nums[left] == 0:
+                        zeroes -= 1
+                    left += 1
+                zeroes += 1
+            maxi = max(right - left + 1, maxi)
+
+        return maxi
+
+
+obj = Solution()
+print(obj.longestOnes(nums=[1,1,1,0,0,0,1,1,1,1,0], k=2))
+print(obj.longestOnes(nums=[0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k=3))
+print(obj.longestOnes(nums=[1, 1, 1, 0, 0, 1, 1, 0], k=3))
