@@ -31,7 +31,17 @@ the memory at once?
 
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        pass
+        dct = {}
+        for el in nums1:
+            dct[el] = dct.get(el, 0) + 1
+
+        lst = []
+        for el in nums2:
+            if el in dct and dct[el] != 0:
+                lst.append(el)
+                dct[el] = dct[el] - 1
+
+        return lst
 
 
 sol = Solution()
