@@ -37,7 +37,13 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        pass
+        dct = {}
+        for el in nums:
+            dct[el] = 0
+
+        for i in range(len(nums) + 1):
+            if i not in dct:
+                return i
 
 
 sol = Solution()
