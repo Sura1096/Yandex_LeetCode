@@ -38,3 +38,14 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         pass
+
+
+sol = Solution()
+nums = [3, 0, 1]
+print(sol.missingNumber(nums))
+
+nums = [0, 1]
+print(sol.missingNumber(nums))
+
+nums = [9, 6, 4, 2, 3, 5, 7, 0, 1]
+print(sol.missingNumber(nums))
