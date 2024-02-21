@@ -29,7 +29,21 @@ could you find an O(n) solution using a different approach?
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        pass
+        dp = [0] * len(nums)
+        start = 0
+        end = len(nums) - 1
+        i = end
+
+        while start <= end:
+            if abs(nums[start]) <= abs(nums[end]):
+                dp[i] = nums[end] ** 2
+                end -= 1
+            elif abs(nums[start]) > abs(nums[end]):
+                dp[i] = nums[start] ** 2
+                start += 1
+            i -= 1
+
+        return dp
 
 
 sol = Solution()
