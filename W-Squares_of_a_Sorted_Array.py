@@ -30,3 +30,10 @@ could you find an O(n) solution using a different approach?
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         pass
+
+
+sol = Solution()
+nums_list = [-4, -1, 0, 3, 10]
+print(sol.sortedSquares(nums_list))
+nums_list = [-7, -3, 2, 3, 11]
+print(sol.sortedSquares(nums_list))
