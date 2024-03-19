@@ -23,6 +23,8 @@ class Solution:
     def generateParentheses(self, n: int) -> List[str]:
         if n <= 0:
             raise ValueError('Input must be greater than 0.')
+        elif n > 8:
+            raise ValueError('Input must be less than 8.')
 
         result = []
         stack = []
