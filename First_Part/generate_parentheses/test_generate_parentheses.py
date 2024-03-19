@@ -37,6 +37,9 @@ class TestGenerateParentheses(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.obj.generateParentheses(0)
 
+        with self.assertRaises(ValueError):
+            self.obj.generateParentheses(9)
+
 
 if __name__ == '__main__':
     unittest.main()
