@@ -22,6 +22,14 @@ class TestGenerateParentheses(unittest.TestCase):
             ["(())", '()()']
         )
 
+        self.assertEqual(
+            self.obj.generateParentheses(4),
+            ['(((())))', '((()()))', '((())())',
+             '((()))()', '(()(()))', '(()()())',
+             '(()())()', '(())(())', '(())()()',
+             '()((()))', '()(()())', '()(())()', '()()(())', '()()()()']
+        )
+
     def test_invalid_generate_parentheses(self):
         with self.assertRaises(ValueError):
             self.obj.generateParentheses(-1)
