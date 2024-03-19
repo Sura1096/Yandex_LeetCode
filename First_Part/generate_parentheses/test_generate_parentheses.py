@@ -11,9 +11,15 @@ class TestGenerateParentheses(unittest.TestCase):
             self.obj.generateParentheses(3),
             ["((()))", "(()())", "(())()", "()(())", "()()()"]
         )
+
         self.assertEqual(
             self.obj.generateParentheses(1),
             ["()"]
+        )
+
+        self.assertEqual(
+            self.obj.generateParentheses(2),
+            ["(())", '()()']
         )
 
 
