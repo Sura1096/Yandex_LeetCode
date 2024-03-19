@@ -43,4 +43,9 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.generateParentheses(3))
+    n = input()
+    try:
+        n = int(n)
+        print(sol.generateParentheses(n))
+    except ValueError:
+        print('Your input should be integer.')
