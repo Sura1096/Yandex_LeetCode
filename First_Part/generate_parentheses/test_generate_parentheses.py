@@ -6,7 +6,7 @@ class TestGenerateParentheses(unittest.TestCase):
     def setUp(self):
         self.obj = Solution()
 
-    def test_generate_parentheses(self):
+    def test_valid_generate_parentheses(self):
         self.assertEqual(
             self.obj.generateParentheses(3),
             ["((()))", "(()())", "(())()", "()(())", "()()()"]
@@ -21,6 +21,13 @@ class TestGenerateParentheses(unittest.TestCase):
             self.obj.generateParentheses(2),
             ["(())", '()()']
         )
+
+    def test_invalid_generate_parentheses(self):
+        with self.assertRaises(ValueError):
+            self.obj.generateParentheses(-1)
+
+        with self.assertRaises(ValueError):
+            self.obj.generateParentheses(0)
 
 
 if __name__ == '__main__':
