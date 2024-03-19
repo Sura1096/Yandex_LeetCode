@@ -41,5 +41,6 @@ class Solution:
         return result
 
 
-sol = Solution()
-print(sol.generateParentheses(3))
+if __name__ == '__main__':
+    sol = Solution()
+    print(sol.generateParentheses(3))
