@@ -21,6 +21,9 @@ Constraints:
 
 class Solution:
     def generateParentheses(self, n: int) -> List[str]:
+        if n <= 0:
+            raise ValueError('Input must be greater than 0.')
+
         result = []
         stack = []
 
@@ -43,9 +46,5 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    n = input()
-    try:
-        n = int(n)
-        print(sol.generateParentheses(n))
-    except ValueError:
-        print('Your input should be integer.')
+    amount = int(input())
+    print(sol.generateParentheses(amount))
