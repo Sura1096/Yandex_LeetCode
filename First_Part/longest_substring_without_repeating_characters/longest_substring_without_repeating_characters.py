@@ -21,3 +21,20 @@ Constraints:
 0 <= s.length <= 5 * 10^4
 s consists of English letters, digits, symbols and spaces.
 '''
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        pass
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    s = "abcabcbb"
+    print(sol.lengthOfLongestSubstring(s))
+
+    s = "bbbbbbb"
+    print(sol.lengthOfLongestSubstring(s))
+
+    s = "pwwkew"
+    print(sol.lengthOfLongestSubstring(s))
