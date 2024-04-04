@@ -29,14 +29,10 @@ class Solution:
         hash_table = {}
         longest_substring = 0
 
-        for right in range(len(s)):
-            hash_table[s[right]] = hash_table.get(s[right], 0) + 1
-            while hash_table[s[right]] > 1:
-                if s[left] == s[right]:
-                    hash_table[s[right]] -= 1
-                else:
-                    hash_table[s[left]] = 0
-                left += 1
+        for right, char in enumerate(s):
+            if char in hash_table and hash_table[char] >= left:
+                left = hash_table[char] + 1
+            hash_table[char] = right
             longest_substring = max(longest_substring, right - left + 1)
 
         return longest_substring
