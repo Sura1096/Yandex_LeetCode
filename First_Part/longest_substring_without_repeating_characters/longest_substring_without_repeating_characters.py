@@ -25,7 +25,21 @@ s consists of English letters, digits, symbols and spaces.
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        pass
+        left = 0
+        hash_table = {}
+        longest_substring = 0
+
+        for right in range(len(s)):
+            hash_table[s[right]] = hash_table.get(s[right], 0) + 1
+            while hash_table[s[right]] > 1:
+                if s[left] == s[right]:
+                    hash_table[s[right]] -= 1
+                else:
+                    hash_table[s[left]] = 0
+                left += 1
+            longest_substring = max(longest_substring, right - left + 1)
+
+        return longest_substring
 
 
 if __name__ == '__main__':
