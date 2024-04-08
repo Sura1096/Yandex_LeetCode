@@ -16,3 +16,29 @@ Constraints:
 1 <= s.length <= 1000
 s consist of only digits and English letters.
 '''
+
+
+class Solution:
+    def longestPalindom(self, s: str) -> str:
+        def expand(left, right):
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return s[left+1:right]
+
+        result = ''
+        for i in range(len(s)):
+            substring1 = expand(i, i)
+            if len(substring1) > len(result):
+                result = substring1
+            substring2 = expand(i, i+1)
+            if len(substring2) > len(result):
+                result = substring2
+
+        return result
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    s = 'xabax'
+    print(sol.longestPalindom(s))
