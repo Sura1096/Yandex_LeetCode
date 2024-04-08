@@ -25,3 +25,23 @@ Constraints:
 arr is sorted in ascending order.
 -104 <= arr[i], x <= 104
 '''
+
+
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        left = 0
+        right = len(arr) - 1
+
+        while right - left + 1 != k:
+            if abs(arr[left] - x) <= abs(arr[right] - x):
+                right -= 1
+            else:
+                left += 1
+
+        return arr[left:right + 1]
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    arr, k, x = [1, 2, 3, 4, 5], 4, 3
+    print(sol.findClosestElements(arr, k, x))
