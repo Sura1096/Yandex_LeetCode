@@ -33,3 +33,27 @@ seats[i] is 0 or 1.
 At least one seat is empty.
 At least one seat is occupied.
 '''
+
+
+class Solution:
+    def maxDistToClosest(self, seats: List[int]) -> int:
+        left = 0
+        maxi_dist = 0
+
+        for right in range(1, len(seats)):
+            if seats[right] == 1:
+                if seats[left] == 1:
+                    maxi_dist = max(maxi_dist, (right - left) // 2)
+                else:
+                    maxi_dist = max(maxi_dist, right - left)
+                left = right
+            elif right == len(seats) - 1:
+                maxi_dist = max(maxi_dist, right - left)
+
+        return maxi_dist
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    seats = [1, 0, 0, 0, 1, 0, 1]
+    print(sol.maxDistToClosest(seats))
