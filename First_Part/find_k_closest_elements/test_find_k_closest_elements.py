@@ -49,4 +49,6 @@ class TestConstraints:
                                              ([1, 2, 3, 4, 5], 4, -1),
                                              ([1], 1, 10)])
     def test_array_consistency(self, array, k, x):
-        assert array == array.sort()
+        sort_array = array
+        sort_array.sort()
+        assert array == sort_array
