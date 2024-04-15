@@ -36,6 +36,12 @@ class TestConstraints:
     @pytest.mark.parametrize('array, k, x', [([1, 2, 3, 4, 5], 4, 3),
                                              ([1, 2, 3, 4, 5], 4, -1),
                                              ([1], 1, 10)])
+    def test_k_constraints(self, array, k, x):
+        assert -10**4 <= x <= 10**4
+
+    @pytest.mark.parametrize('array, k, x', [([1, 2, 3, 4, 5], 4, 3),
+                                             ([1, 2, 3, 4, 5], 4, -1),
+                                             ([1], 1, 10)])
     def test_array_length(self, array, k, x):
         assert 1 <= len(array) <= 10**4
 
