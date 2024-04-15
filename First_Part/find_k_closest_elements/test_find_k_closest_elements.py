@@ -24,3 +24,23 @@ class TestErrors:
     def test_index_error(self, array, k, x):
         with pytest.raises(IndexError):
             sol.findClosestElements(array, k, x)
+
+
+class TestConstraints:
+    @pytest.mark.parametrize('array, k, x', [([1, 2, 3, 4, 5], 4, 3),
+                                             ([1, 2, 3, 4, 5], 4, -1),
+                                             ([1], 1, 10)])
+    def test_k_constraints(self, array, k, x):
+        assert 1 <= k <= len(array)
+
+    @pytest.mark.parametrize('array, k, x', [([1, 2, 3, 4, 5], 4, 3),
+                                             ([1, 2, 3, 4, 5], 4, -1),
+                                             ([1], 1, 10)])
+    def test_array_length(self, array, k, x):
+        assert 1 <= len(array) <= 10**4
+
+    @pytest.mark.parametrize('array, k, x', [([1, 2, 3, 4, 5], 4, 3),
+                                             ([1, 2, 3, 4, 5], 4, -1),
+                                             ([1], 1, 10)])
+    def test_array_consistency(self, array, k, x):
+        assert array == array.sort()
