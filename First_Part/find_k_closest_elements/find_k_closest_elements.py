@@ -21,9 +21,9 @@ Output: [1,2,3,4]
 
 Constraints:
 1 <= k <= arr.length
-1 <= arr.length <= 104
+1 <= arr.length <= 10^4
 arr is sorted in ascending order.
--104 <= arr[i], x <= 104
+-10^4 <= arr[i], x <= 10^4
 '''
 
 
