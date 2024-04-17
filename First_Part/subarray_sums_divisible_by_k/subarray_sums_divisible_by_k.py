@@ -22,3 +22,26 @@ Constraints:
 -10^4 <= nums[i] <= 10^4
 2 <= k <= 10^4
 '''
+
+
+class Solution:
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        prefix_sum = 0
+        subarray_count = 0
+        dct = {0: 1}
+
+        for num in nums:
+            prefix_sum += num
+            reminder = prefix_sum % k
+            if reminder in dct:
+                subarray_count += dct[reminder]
+            dct[reminder] = dct.get(reminder, 0) + 1
+
+        return subarray_count
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [4, 5, 0, -2, -3, 1]
+    k = 5
+    print(sol.subarraysDivByK(nums, k))
