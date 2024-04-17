@@ -30,6 +30,8 @@ s consists only of printable ASCII characters.
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        if len(s) < 1 or len(s) > 2 * 10**5:
+            raise ValueError('Length of input string should be between 1 and 2 * 10^5')
         start = 0
         end = len(s) - 1
 
