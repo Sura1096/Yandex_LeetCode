@@ -46,7 +46,13 @@ class Solution:
         return True
 
 
-sol = Solution()
-print(sol.isPalindrome('A man, a plan, a canal: Panama'))
-print(sol.isPalindrome('race a car'))
-print(sol.isPalindrome(' '))
+if __name__ == '__main__':
+    sol = Solution()
+    s = 'A man, a plan, a canal: Panama'
+    print(sol.isPalindrome(s))
+
+    s = 'race a car'
+    print(sol.isPalindrome(s))
+
+    s = ' '
+    print(sol.isPalindrome(s))
