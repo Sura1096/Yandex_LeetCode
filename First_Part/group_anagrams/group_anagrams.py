@@ -46,7 +46,13 @@ class Solution:
         return lst
 
 
-sol = Solution()
-print(sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
-print(sol.groupAnagrams([""]))
-print(sol.groupAnagrams(["a"]))
+if __name__ == '__main__':
+    sol = Solution()
+    string = ["eat", "tea", "tan", "ate", "nat", "bat"]
+    print(sol.groupAnagrams(string))
+
+    string2 = [""]
+    print(sol.groupAnagrams(string2))
+
+    string3 = ['a']
+    print(sol.groupAnagrams(string3))
