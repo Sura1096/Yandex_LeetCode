@@ -21,6 +21,8 @@ Constraints:
 
 class Solution:
     def generateParentheses(self, n: int) -> List[str]:
+        if not isinstance(n, int):
+            raise TypeError('Input must be numeric.')
         if n <= 0:
             raise ValueError('Input must be greater than 0.')
         elif n > 8:
