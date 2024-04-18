@@ -27,3 +27,53 @@ The number of nodes in the tree is in the range [0, 10^4].
 0 <= Node.val <= 10^4
 The input tree is guaranteed to be a binary search tree.
 '''
+
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+
+class Codec:
+    def serialize(self, root: Optional[TreeNode]) -> str:
+        """Encodes a tree to a single string.
+        """
+        result = []
+
+        def preorder(root):
+            if not root:
+                result.append('null')
+                return
+            result.append(str(root.val))
+            preorder(root.left)
+            preorder(root.right)
+        preorder(root)
+        return ','.join(result)
+
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        """Decodes your encoded data to tree.
+        """
+        vals = data.split(',')
+        self.i = 0
+
+        def preorder():
+            if vals[self.i] == 'null':
+                self.i += 1
+                return None
+            node = TreeNode(int(vals[self.i]))
+            self.i += 1
+            node.left = preorder()
+            node.right = preorder()
+            return node
+        return preorder()
+
+
+# Your Codec object will be instantiated and called as such:
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# des = Codec()
+# tree = ser.serialize(root)
+# ans = des.deserialize(tree)
+# return ans
