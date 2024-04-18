@@ -1,45 +1,21 @@
-import unittest
+import pytest
 from generate_parentheses import Solution
 
 
-class TestGenerateParentheses(unittest.TestCase):
-    def setUp(self):
-        self.obj = Solution()
-
-    def test_valid_generate_parentheses(self):
-        self.assertEqual(
-            self.obj.generateParentheses(3),
-            ["((()))", "(()())", "(())()", "()(())", "()()()"]
-        )
-
-        self.assertEqual(
-            self.obj.generateParentheses(1),
-            ["()"]
-        )
-
-        self.assertEqual(
-            self.obj.generateParentheses(2),
-            ["(())", '()()']
-        )
-
-        self.assertEqual(
-            self.obj.generateParentheses(4),
-            ['(((())))', '((()()))', '((())())',
-             '((()))()', '(()(()))', '(()()())',
-             '(()())()', '(())(())', '(())()()',
-             '()((()))', '()(()())', '()(())()', '()()(())', '()()()()']
-        )
-
-    def test_invalid_generate_parentheses(self):
-        with self.assertRaises(ValueError):
-            self.obj.generateParentheses(-1)
-
-        with self.assertRaises(ValueError):
-            self.obj.generateParentheses(0)
-
-        with self.assertRaises(ValueError):
-            self.obj.generateParentheses(9)
+sol = Solution()
 
 
-if __name__ == '__main__':
-    unittest.main()
+@pytest.mark.parametrize('n, expected_result', [(3, ["((()))", "(()())", "(())()", "()(())", "()()()"]),
+                                                (1, ["()"]),
+                                                (2, ['(())', '()()'])])
+def test_positive_cases(n, expected_result):
+    assert sol.generateParentheses(n) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, n', [(ValueError, 0),
+                                                   (ValueError, -1),
+                                                   (ValueError, 9),
+                                                   (TypeError, 'a')])
+def test_errors(expected_exception, n):
+    with pytest.raises(expected_exception):
+        sol.generateParentheses(n)
