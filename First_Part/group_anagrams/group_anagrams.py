@@ -21,7 +21,7 @@ Input: strs = ["a"]
 Output: [["a"]]
 
 Constraints:
-1 <= strs.length <= 104
+1 <= strs.length <= 10^4
 0 <= strs[i].length <= 100
 strs[i] consists of lowercase English letters.
 '''
@@ -34,7 +34,12 @@ class Solution:
 
         return ''.join(lst)
 
-    def groupAnagrams(self,strs: List[str]) -> List[List[str]]:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        if len(strs) < 1 or len(strs) > 10**4:
+            raise ValueError('Input must be greater or equal to 1 and less than or equal to 10^4')
+        for el in strs:
+            if len(el) > 100:
+                raise ValueError('Item in strings must be less than 100')
         dct = {}
         for item in strs:
             dct[self.sort_str(item)] = dct.get(self.sort_str(item), []) + [item]
