@@ -43,12 +43,12 @@ class Solution:
 
         return lst
 
+if __name__ == '__main__':
+    sol = Solution()
+    nums1 = [1, 2, 2, 1]
+    nums2 = [2, 2]
+    print(sol.intersect(nums1, nums2))
 
-sol = Solution()
-nums1 = [1, 2, 2, 1]
-nums2 = [2, 2]
-print(sol.intersect(nums1, nums2))
-
-nums1 = [4, 9, 5]
-nums2 = [9, 4, 9, 8, 4]
-print(sol.intersect(nums1, nums2))
+    nums1 = [4, 9, 5]
+    nums2 = [9, 4, 9, 8, 4]
+    print(sol.intersect(nums1, nums2))
