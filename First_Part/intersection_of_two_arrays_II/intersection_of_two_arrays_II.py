@@ -31,6 +31,22 @@ the memory at once?
 
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        if len(nums1) < 1 or len(nums1) > 1000:
+            raise ValueError('Input list length must be 1 <= length <= 1000')
+        if len(nums2) < 1 or len(nums2) > 1000:
+            raise ValueError('Input list length must be 1 <= length <= 1000')
+        for num in nums1:
+            if not isinstance(num, int):
+                raise ValueError('Elements in list must be numeric')
+            if num < 0 or num > 1000:
+                raise ValueError('Number in list must be 0 <= num <= 1000')
+
+        for num in nums2:
+            if not isinstance(num, int):
+                raise ValueError('Elements in list must be numeric')
+            if num < 0 or num > 1000:
+                raise ValueError('Number in list must be 0 <= num <= 1000')
+
         dct = {}
         for el in nums1:
             dct[el] = dct.get(el, 0) + 1
@@ -42,6 +58,7 @@ class Solution:
                 dct[el] = dct[el] - 1
 
         return lst
+
 
 if __name__ == '__main__':
     sol = Solution()
