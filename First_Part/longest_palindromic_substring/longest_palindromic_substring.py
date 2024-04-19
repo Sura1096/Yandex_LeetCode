@@ -20,6 +20,11 @@ s consist of only digits and English letters.
 
 class Solution:
     def longestPalindom(self, s: str) -> str:
+        if len(s) < 1 or len(s) > 1000:
+            raise ValueError('Input length must be 1 <= length <= 1000.')
+        if not s.isalnum():
+            raise ValueError('Input must consist of digits and English letters only.')
+
         def expand(left, right):
             while left >= 0 and right < len(s) and s[left] == s[right]:
                 left -= 1
