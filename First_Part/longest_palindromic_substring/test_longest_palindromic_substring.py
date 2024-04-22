@@ -23,3 +23,13 @@ def test_positive(s, expected_result):
                           ('1234dfg', '1')])
 def test_boundary_cases(s, expected_result):
     assert sol.longestPalindom(s) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, s',
+                         [(ValueError, ''),
+                          (ValueError, 'a' * 1001),
+                          (ValueError, 'aansaaaa?,sdff'),
+                          (ValueError, '@#$sknf')])
+def test_errors(expected_exception, s):
+    with pytest.raises(expected_exception):
+        sol.longestPalindom(s)
