@@ -11,3 +11,10 @@ sol = Solution()
                           ([1, 1, 1], 2)])
 def test_positive_cases(nums, expected_result):
     assert sol.longestSubarray(nums) == expected_result
+
+
+@pytest.mark.parametrize('nums, expected_result',
+                         [([1], 0),
+                          ([0, 0, 0, 0], 0)])
+def test_boundary_cases(nums, expected_result):
+    assert sol.longestSubarray(nums) == expected_result
