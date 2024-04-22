@@ -9,7 +9,8 @@ sol = Solution()
                          [("babad", "bab"),
                           ("cbbd", "bb"),
                           ("xabax", "xabax"),
-                          ("xabay", "aba")])
+                          ("xabay", "aba"),
+                          ('123ffdgh12455421', '12455421')])
 def test_positive(s, expected_result):
     assert sol.longestPalindom(s) == expected_result
 
