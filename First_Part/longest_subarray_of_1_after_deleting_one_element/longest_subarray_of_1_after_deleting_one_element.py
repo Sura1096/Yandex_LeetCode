@@ -40,6 +40,11 @@ but they are not removed from the array.
 
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
+        if len(nums) < 1 or len(nums) > (10**5):
+            raise ValueError('The length of an input data must be 1 <= length <= 10^5.')
+        for item in nums:
+            if item not in (0, 1):
+                raise ValueError('The item in nums must be either 0 or 1.')
         longest_subarray = 0
         left = 0
         zeros = 0
