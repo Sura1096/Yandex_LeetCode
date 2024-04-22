@@ -12,3 +12,13 @@ sol = Solution()
                           ("xabay", "aba")])
 def test_positive(s, expected_result):
     assert sol.longestPalindom(s) == expected_result
+
+
+@pytest.mark.parametrize('s, expected_result',
+                         [('andfgh', 'a'),
+                          ('a', 'a'),
+                          ('asdfghjkl', 'a'),
+                          ('ad123dfgd', 'a'),
+                          ('1234dfg', '1')])
+def test_boundary_cases(s, expected_result):
+    assert sol.longestPalindom(s) == expected_result
