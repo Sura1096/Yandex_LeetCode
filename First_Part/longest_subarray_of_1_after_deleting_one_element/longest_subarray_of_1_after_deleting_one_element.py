@@ -58,6 +58,11 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.longestSubarray([1, 1, 0, 1]))
-    print(sol.longestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]))
-    print(sol.longestSubarray([1, 1, 1]))
+    nums = [1, 1, 0, 1]
+    print(sol.longestSubarray(nums))
+
+    nums = [0, 1, 1, 1, 0, 1, 1, 0, 1]
+    print(sol.longestSubarray(nums))
+
+    nums = [1, 1, 1]
+    print(sol.longestSubarray(nums))
