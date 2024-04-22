@@ -40,3 +40,39 @@ Constraints:
 1 <= tokens.length <= 10^4
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
 '''
+
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        nums = []
+        res = None
+
+        for item in tokens:
+            if item not in ('+', '-', '*', '/'):
+                nums.append(int(item))
+            else:
+                second = nums.pop()
+                first = nums.pop()
+                if item == '+':
+                    res = first + second
+                elif item == '-':
+                    res = first - second
+                elif item == '*':
+                    res = first * second
+                elif item == '/':
+                    res = int(first / second)
+                nums.append(res)
+
+        return res
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
+    print(sol.evalRPN(tokens))
+
+    tokens = ["2", "1", "+", "3", "*"]
+    print(sol.evalRPN(tokens))
+
+    tokens = ["4", "13", "5", "/", "+"]
+    print(sol.evalRPN(tokens))
