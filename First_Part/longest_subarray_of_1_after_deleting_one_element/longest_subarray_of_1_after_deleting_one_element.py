@@ -56,7 +56,8 @@ class Solution:
         return longest_subarray
 
 
-sol = Solution()
-print(sol.longestSubarray([1, 1, 0, 1]))
-print(sol.longestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]))
-print(sol.longestSubarray([1, 1, 1]))
+if __name__ == '__main__':
+    sol = Solution()
+    print(sol.longestSubarray([1, 1, 0, 1]))
+    print(sol.longestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]))
+    print(sol.longestSubarray([1, 1, 1]))
