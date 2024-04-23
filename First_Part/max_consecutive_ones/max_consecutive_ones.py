@@ -23,6 +23,11 @@ nums[i] is either 0 or 1.
 
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        if len(nums) < 1 or len(nums) > 10**5:
+            raise ValueError('Input length must be 1 <= length <= 10^5')
+        for item in nums:
+            if item not in (0, 1):
+                raise ValueError('Item in a list must be either 0 or 1')
         maxi = 0
         count = 0
 
