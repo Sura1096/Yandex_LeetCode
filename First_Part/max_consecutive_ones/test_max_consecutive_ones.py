@@ -11,3 +11,12 @@ sol = Solution()
                           ([1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1], 5)])
 def test_positive_cases(nums, expected_result):
     assert sol.findMaxConsecutiveOnes(nums) == expected_result
+
+
+@pytest.mark.parametrize('nums, expected_result',
+                         [([1, 1, 1, 1, 1, 1], 6),
+                          ([0, 0, 0, 0, 0, 0], 0),
+                          ([1], 1),
+                          ([0], 0)])
+def test_boundary_cases(nums, expected_result):
+    assert sol.findMaxConsecutiveOnes(nums) == expected_result
