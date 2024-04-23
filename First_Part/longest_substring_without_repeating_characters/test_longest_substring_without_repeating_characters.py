@@ -8,7 +8,7 @@ sol = Solution()
 @pytest.mark.parametrize('s, expected_result',
                          [("abcabcbb", 3),
                           ("pwwkew", 3),
-                          ("asdfghj", 7)])
+                          ("agbfaacccvccdbhhnjfhhcvvvg", 4)])
 def test_positive_cases(s, expected_result):
     assert sol.lengthOfLongestSubstring(s) == expected_result
 
