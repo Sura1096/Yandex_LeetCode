@@ -36,3 +36,34 @@ Constraints:
 path consists of English letters, digits, period '.', slash '/' or '_'.
 path is a valid absolute Unix path.
 '''
+
+
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        files_name = []
+        current_directory = ''
+
+        for char in path + '/':
+            if char == '/':
+                if current_directory == '..':
+                    if files_name:
+                        files_name.pop()
+                elif current_directory != '' and current_directory != '.':
+                    files_name.append(current_directory)
+                current_directory = ''
+            else:
+                current_directory += char
+
+        return '/' + '/'.join(files_name)
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    path = "/home/"
+    print(sol.simplifyPath(path))
+
+    path = "/../"
+    print(sol.simplifyPath(path))
+
+    path = "/home//foo/"
+    print(sol.simplifyPath(path))
