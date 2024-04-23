@@ -25,6 +25,8 @@ s consists of English letters, digits, symbols and spaces.
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) > (5 * (10**4)):
+            raise ValueError('Input length must be length <= 5 * 10^4')
         left = 0
         hash_table = {}
         longest_substring = 0
