@@ -22,3 +22,11 @@ def test_positive_cases(s, expected_result):
                           ("asdfghj", 7)])
 def test_boundary_cases(s, expected_result):
     assert sol.lengthOfLongestSubstring(s) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, s',
+                         [(ValueError, 'a' * (5 * (10**4) + 1)),
+                          (ValueError, 'abs' * (5 * (10**5)))])
+def test_errors(expected_exception, s):
+    with pytest.raises(expected_exception):
+        sol.lengthOfLongestSubstring(s)
