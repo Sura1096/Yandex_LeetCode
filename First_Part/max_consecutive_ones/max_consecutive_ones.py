@@ -36,6 +36,10 @@ class Solution:
         return maxi
 
 
-obj = Solution()
-print(obj.findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))
-print(obj.findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]))
+if __name__ == '__main__':
+    obj = Solution()
+    nums = [1, 1, 0, 1, 1, 1]
+    print(obj.findMaxConsecutiveOnes(nums))
+
+    nums = [1, 0, 1, 1, 0, 1]
+    print(obj.findMaxConsecutiveOnes(nums))
