@@ -30,13 +30,12 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        dp = [0] * len(nums)
-        dp[0] = nums[0]
         max_sum = nums[0]
+        nums_sum = nums[0]
 
-        for ind in range(1, len(nums)):
-            dp[ind] = max(nums[ind], dp[ind-1]+nums[ind])
-            max_sum = max(max_sum, dp[ind])
+        for num in nums[1:]:
+            nums_sum = max(num, nums_sum+num)
+            max_sum = max(max_sum, nums_sum)
 
         return max_sum
 
