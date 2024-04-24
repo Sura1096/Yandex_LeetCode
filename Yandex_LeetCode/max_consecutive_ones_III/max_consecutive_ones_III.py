@@ -42,7 +42,16 @@ class Solution:
         return maxi
 
 
-obj = Solution()
-print(obj.longestOnes(nums=[1,1,1,0,0,0,1,1,1,1,0], k=2))
-print(obj.longestOnes(nums=[0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k=3))
-print(obj.longestOnes(nums=[1, 1, 1, 0, 0, 1, 1, 0], k=3))
+if __name__ == "__main__":
+    obj = Solution()
+    nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0]
+    k = 2
+    print(obj.longestOnes(nums, k))
+
+    nums = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1]
+    k = 3
+    print(obj.longestOnes(nums, k))
+
+    nums = [1, 1, 1, 0, 0, 1, 1, 0]
+    k = 3
+    print(obj.longestOnes(nums, k))
