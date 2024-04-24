@@ -28,6 +28,14 @@ nums[i] is either 0 or 1.
 
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
+        if len(nums) < 1 or len(nums) > 10**5:
+            raise ValueError('Input length must be 1 <= length <= 10^5')
+        if k < 0 or k > len(nums):
+            raise ValueError('K value must be 0 <= k <= list.length')
+
+        for num in nums:
+            if nums not in (0, 1):
+                raise ValueError('Item value in a list must be either 0 or 1')
         left, maxi, zeroes = 0, 0, 0
 
         for right in range(len(nums)):
