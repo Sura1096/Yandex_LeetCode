@@ -34,7 +34,7 @@ class Solution:
             raise ValueError('K value must be 0 <= k <= list.length')
 
         for num in nums:
-            if nums not in (0, 1):
+            if num not in (0, 1):
                 raise ValueError('Item value in a list must be either 0 or 1')
         left, maxi, zeroes = 0, 0, 0
 
