@@ -26,3 +26,28 @@ Constraints:
 -10^4 <= nums[i] <= 10^4
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 '''
+
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
+        max_sum = nums[0]
+
+        for ind in range(1, len(nums)):
+            dp[ind] = max(nums[ind], dp[ind-1]+nums[ind])
+            max_sum = max(max_sum, dp[ind])
+
+        return max_sum
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    print(sol.maxSubArray(nums))
+
+    nums = [1]
+    print(sol.maxSubArray(nums))
+
+    nums = [5, 4, -1, 7, 8]
+    print(sol.maxSubArray(nums))
