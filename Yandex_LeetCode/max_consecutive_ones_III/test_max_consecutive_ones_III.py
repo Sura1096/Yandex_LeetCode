@@ -21,6 +21,9 @@ def test_positive_cases(nums, k, expected_result):
                           ([1, 1, 1, 1, 1, 1, 1, 1], 3, 8),
                           ([1, 1, 1, 1, 1, 1, 1, 1], 3, 8),
                           ([0, 0, 0, 0, 0, 0, 0, 0], 0, 0),
-                          ([0, 0, 0, 0, 0, 0, 0, 0], 8, 8)])
+                          ([0, 0, 0, 0, 0, 0, 0, 0], 8, 8),
+                          ([0], 1, 1),
+                          ([1], 0, 1),
+                          ([1], 1, 1)])
 def test_boundary_cases(nums, k, expected_result):
     assert sol.longestOnes(nums, k) == expected_result
