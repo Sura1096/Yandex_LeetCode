@@ -1,0 +1,2 @@
+import pytest
+from maximize_distance_to_closest_person import Solution
