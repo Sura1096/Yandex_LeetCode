@@ -32,3 +32,44 @@ Constraints:
 3 <= nums.length <= 3000
 -10^5 <= nums[i] <= 10^5
 '''
+
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        answer = []
+
+        for first_ind in range(len(nums) - 2):
+            if nums[first_ind] > 0:
+                break
+            elif first_ind > 0 and nums[first_ind] == nums[first_ind - 1]:
+                continue
+            second_ind = first_ind + 1
+            third_ind = len(nums) - 1
+
+            while second_ind < third_ind:
+                three_sum = nums[first_ind] + nums[second_ind] + nums[third_ind]
+                if three_sum < 0:
+                    second_ind += 1
+                elif three_sum > 0:
+                    third_ind -= 1
+                else:
+                    triplet = [nums[first_ind], nums[second_ind], nums[third_ind]]
+                    answer.append(triplet)
+                    while second_ind < third_ind and nums[second_ind] == triplet[1]:
+                        second_ind += 1
+                    while second_ind < third_ind and nums[third_ind] == triplet[2]:
+                        third_ind -= 1
+        return answer
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [-1, 0, 1, 2, -1, -4]
+    print(sol.threeSum(nums))
+
+    nums = [0, 1, 1]
+    print(sol.threeSum(nums))
+
+    nums = [0, 0, 0]
+    print(sol.threeSum(nums))
