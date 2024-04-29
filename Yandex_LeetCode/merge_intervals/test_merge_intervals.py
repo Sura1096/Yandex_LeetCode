@@ -12,3 +12,10 @@ sol = Solution()
                           ([[1, 2], [3, 4], [5, 6], [10, 11], [12, 13]], [[1, 2], [3, 4], [5, 6], [10, 11], [12, 13]])])
 def test_positive_cases(intervals, expected_result):
     assert sol.merge(intervals) == expected_result
+
+
+@pytest.mark.parametrize('intervals, expected_result',
+                         [([[1, 3]], [[1, 3]]),
+                          ([[0, 0], [0, 0]], [[0, 0]])])
+def test_boundary_cases(intervals, expected_result):
+    assert sol.merge(intervals) == expected_result
