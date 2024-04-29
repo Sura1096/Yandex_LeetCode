@@ -37,6 +37,14 @@ At least one seat is occupied.
 
 class Solution:
     def maxDistToClosest(self, seats: List[int]) -> int:
+        if len(seats) < 2 or len(seats) > 2 * (10**4):
+            raise ValueError('Input length must be 2 <= length <= 2 * 10^4')
+        if (1 not in seats) or (0 not in seats):
+            raise ValueError('At least one seat is empty and at least one seat is occupied')
+
+        for seat in seats:
+            if seat not in (0, 1):
+                raise ValueError('Item in the list must be either 0 or 1')
         left = 0
         maxi_dist = 0
 
