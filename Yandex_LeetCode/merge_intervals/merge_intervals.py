@@ -41,9 +41,10 @@ class Solution:
         return result
 
 
-sol = Solution()
-interval1 = [[1, 3], [2, 6], [8, 10], [15, 18]]
-print(sol.merge(interval1))
+if __name__ == '__main__':
+    sol = Solution()
+    interval1 = [[1, 3], [2, 6], [8, 10], [15, 18]]
+    print(sol.merge(interval1))
 
-interval2 = [[1, 4], [4, 5]]
-print(sol.merge(interval2))
+    interval2 = [[1, 4], [4, 5]]
+    print(sol.merge(interval2))
