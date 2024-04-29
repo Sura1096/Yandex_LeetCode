@@ -26,6 +26,15 @@ intervals[i].length == 2
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        if len(intervals) < 1 or len(intervals) > 10**4:
+            raise ValueError('Input length must be 1 <= length <= 10^4')
+        for item in intervals:
+            if len(item) != 2:
+                raise ValueError('Item length of a list must be equal to 2')
+            if item[0] < 0 or item[0] > 10**4:
+                raise ValueError('Start position must have value 0 <= start <= 10^4')
+            if item[1] < item[0] or item[1] > 10**4:
+                raise ValueError('End position must have value start <= end <= 10^4')
         intervals.sort()
 
         result = []
