@@ -36,3 +36,32 @@ n == nums.length
 All the integers of nums are unique.
 nums is sorted and rotated between 1 and n times.
 '''
+
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l = 0
+        r = len(nums) - 1
+        while l < r:
+            mid = (l + r) // 2
+            if nums[l] <= nums[mid]:
+                if nums[mid] > nums[r]:
+                    l = mid + 1
+                else:
+                    return nums[l]
+            else:
+                if nums[mid] < nums[r]:
+                    r = mid
+        return nums[l]
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [3, 4, 5, 1, 2]
+    print(sol.findMin(nums))
+
+    nums = [4, 5, 6, 7, 0, 1, 2]
+    print(sol.findMin(nums))
+
+    nums = [11, 13, 15, 17]
+    print(sol.findMin(nums))
