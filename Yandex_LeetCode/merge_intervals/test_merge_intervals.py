@@ -19,3 +19,13 @@ def test_positive_cases(intervals, expected_result):
                           ([[0, 0], [0, 0]], [[0, 0]])])
 def test_boundary_cases(intervals, expected_result):
     assert sol.merge(intervals) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, intervals',
+                         [(ValueError, []),
+                          (ValueError, [[1, 2, 3], [1, 2], [2, 3]]),
+                          (ValueError, [[1, 2], [2, 3], [-1, 0]]),
+                          (ValueError, [[1, 2], [7, 10], [9, 4]])])
+def test_errors(expected_exception, intervals):
+    with pytest.raises(expected_exception):
+        sol.merge(intervals)
