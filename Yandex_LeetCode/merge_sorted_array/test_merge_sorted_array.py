@@ -20,3 +20,23 @@ sol = Solution()
                            [1, 2, 3, 4, 5, 6, 7])])
 def test_positive_cases(nums1, m, nums2, n, expected_result):
     assert sol.merge(nums1, m, nums2, n) == expected_result
+
+
+@pytest.mark.parametrize('nums1, m, nums2, n, expected_result',
+                         [([0], 0,
+                           [1], 1,
+                           [1]),
+                          ([1], 1,
+                           [], 0,
+                           [1]),
+                          ([0, 0, 0], 0,
+                           [1, 2, 3], 3,
+                           [1, 2, 3]),
+                          ([1, 2, 3], 3,
+                           [], 0,
+                           [1, 2, 3]),
+                          ([1, 0], 1,
+                           [2], 1,
+                           [1, 2])])
+def test_boundary_cases(nums1, m, nums2, n, expected_result):
+    assert sol.merge(nums1, m, nums2, n) == expected_result
