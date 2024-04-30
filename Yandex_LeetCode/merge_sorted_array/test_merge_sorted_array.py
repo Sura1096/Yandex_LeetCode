@@ -40,3 +40,15 @@ def test_positive_cases(nums1, m, nums2, n, expected_result):
                            [1, 2])])
 def test_boundary_cases(nums1, m, nums2, n, expected_result):
     assert sol.merge(nums1, m, nums2, n) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, nums1, m, nums2, n',
+                         [(ValueError, [], 0, [], 0),
+                          (ValueError, [], 1, [], 0),
+                          (ValueError, [1, 2, 3], 3, [], 1),
+                          (ValueError, [1, 2, 3], 4, [1], 1),
+                          (ValueError, [1, 2, 5 * (10**9 + 1), 0], 3, [1], 1),
+                          (ValueError, [1, 2, 5 * (-10**9 - 1), 0], 3, [1], 1)])
+def test_errors(expected_exception, nums1, m, nums2, n):
+    with pytest.raises(expected_exception):
+        sol.merge(nums1, m, nums2, n)
