@@ -47,6 +47,20 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        if len(nums1) != m + n:
+            raise ValueError('Length of nums1 must be nums1.length == m + n')
+        if len(nums2) != n:
+            raise ValueError('Length of nums2 must be nums2.length == n')
+        if m < 0 or m > 200 or n < 0 or n > 200:
+            raise ValueError('Value of m/n must be 0 <= m, n <= 200')
+        if m + n < 1 or m + n > 200:
+            raise ValueError('Value of m + n must be 1 <= m + n <= 200')
+        for num in nums1:
+            if num < -10**9 or num > 10**9:
+                raise ValueError('Value of an item in nums1 must be -10^9 <= nums1[i] <= 10^9')
+        for num in nums2:
+            if num < -10**9 or num > 10**9:
+                raise ValueError('Value of an item in nums2 must be -10^9 <= nums2[i] <= 10^9')
         i = m + n - 1
 
         while m > 0 and n > 0:
