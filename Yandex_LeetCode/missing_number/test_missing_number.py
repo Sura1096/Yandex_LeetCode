@@ -12,3 +12,10 @@ sol = Solution()
                           ([5, 2, 1, 3, 0], 4)])
 def test_positive_cases(nums, expected_result):
     assert sol.missingNumber(nums) == expected_result
+
+
+@pytest.mark.parametrize('nums, expected_result',
+                         [([1], 0),
+                          ([0], 1)])
+def test_boundary_cases(nums, expected_result):
+    assert sol.missingNumber(nums) == expected_result
