@@ -37,6 +37,13 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
+        if len(nums) < 1 or len(nums) > 10**4:
+            raise ValueError('Input data length must be 1 <= length <= 10^4')
+        if len(set(nums)) < len(nums):
+            raise ValueError('All the numbers of nums must be unique.')
+        for num in nums:
+            if num < 0 or num > len(nums):
+                raise ValueError('Item value must be 0 <= nums[i] <= length')
         dct = {}
         for el in nums:
             dct[el] = 0
