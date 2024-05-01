@@ -27,7 +27,7 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
 
 Constraints:
 n == nums.length
-1 <= n <= 104
+1 <= n <= 10^4
 0 <= nums[i] <= n
 All the numbers of nums are unique.
 
