@@ -26,12 +26,20 @@ Follow up: Could you minimize the total number of operations done?
 
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
+        if len(nums) < 1 or len(nums) > 10**4:
+            raise ValueError('Input data length must be 1 <= length <= 10^4')
+        for num in nums:
+            if not isinstance(num, int):
+                raise ValueError('Item in a list must be an integer')
+            if num < -2**31 or num > 2**31 - 1:
+                raise ValueError('Item in a list must be -2^31 <= nums[i] <= 2^31 - 1')
         pointer = 0
 
         for cur_ind in range(len(nums)):
             if nums[cur_ind] != 0:
                 nums[pointer], nums[cur_ind] = nums[cur_ind], nums[pointer]
                 pointer += 1
+        return nums
 
 
 if __name__ == '__main__':
