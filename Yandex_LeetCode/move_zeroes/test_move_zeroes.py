@@ -11,3 +11,11 @@ sol = Solution()
                           ([1, 2, 4, 0, 3, 0, 12, 0], [1, 2, 4, 3, 12, 0, 0, 0])])
 def test_positive_cases(nums, expected_result):
     assert sol.moveZeroes(nums) == expected_result
+
+
+@pytest.mark.parametrize('nums, expected_result',
+                         [([0], [0]),
+                          ([12], [12]),
+                          ([1, 0], [1, 0])])
+def test_boundary_cases(nums, expected_result):
+    assert sol.moveZeroes(nums) == expected_result
