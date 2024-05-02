@@ -34,8 +34,9 @@ class Solution:
                 pointer += 1
 
 
-sol = Solution()
-print(sol.moveZeroes([0, 1, 0, 3, 12]))
-print(sol.moveZeroes([0]))
-print(sol.moveZeroes([0, 0, 0, 1, 0, 3, 12, 0]))
-print(sol.moveZeroes([1, 2, 4, 0, 3, 0, 12, 0]))
+if __name__ == '__main__':
+    sol = Solution()
+    print(sol.moveZeroes([0, 1, 0, 3, 12]))
+    print(sol.moveZeroes([0]))
+    print(sol.moveZeroes([0, 0, 0, 1, 0, 3, 12, 0]))
+    print(sol.moveZeroes([1, 2, 4, 0, 3, 0, 12, 0]))
