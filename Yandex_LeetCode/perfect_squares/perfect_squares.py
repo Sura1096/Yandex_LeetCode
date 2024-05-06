@@ -23,6 +23,10 @@ Constraints:
 
 class Solution:
     def numSquares(self, n: int) -> int:
+        if not isinstance(n, int):
+            raise ValueError('Input value must be an integer')
+        if n < 1 or n > 10**4:
+            raise ValueError('Input value must be 1 <= n <= 10^4')
         dp = [n] * (n + 1)
         dp[0] = 0
         for target in range(1, n + 1):
