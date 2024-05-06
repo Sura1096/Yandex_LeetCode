@@ -65,6 +65,12 @@ class Solution:
         return match_chars == 26
 
 
-sol = Solution()
-print(sol.checkInclusion(s1="ab", s2="eidbaooo"))
-print(sol.checkInclusion(s1="ab", s2="eidboaoo"))
+if __name__ == '__main__':
+    sol = Solution()
+    s1 = "ab"
+    s2 = "eidbaooo"
+    print(sol.checkInclusion(s1, s2))
+
+    s1 = "ab"
+    s2 = "eidboaoo"
+    print(sol.checkInclusion(s1, s2))
