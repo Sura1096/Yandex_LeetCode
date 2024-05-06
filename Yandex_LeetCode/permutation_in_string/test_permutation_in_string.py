@@ -29,3 +29,18 @@ def test_negative_cases(s1, s2, expected_result):
                           ("abc", "sdfg", False)])
 def test_boundary_cases(s1, s2, expected_result):
     assert sol.checkInclusion(s1, s2) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, s1, s2',
+                         [(ValueError, '', 'a'),
+                          (ValueError, 'a', ''),
+                          (ValueError, 'abc', 'a'),
+                          (ValueError, 'ank1djkf', 'qwertyu'),
+                          (ValueError, 'bdjAknf', 'bcfdskjids'),
+                          (ValueError, 'asdf', 'jn2dfv'),
+                          (ValueError, 'dif', 'lkiXbg'),
+                          (ValueError, 'AAA', 'BBB'),
+                          (ValueError, '123', '345')])
+def test_error_cases(expected_exception, s1, s2):
+    with pytest.raises(expected_exception):
+        sol.checkInclusion(s1, s2)
