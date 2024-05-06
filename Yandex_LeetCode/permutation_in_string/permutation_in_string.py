@@ -30,8 +30,16 @@ Which data structure should be used to store frequencies?
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        if len(s1) > len(s2):
-            return False
+        if len(s1) < 1 or len(s2) < len(s1) or len(s1) > 10**4 or len(s2) > 10**4:
+            raise ValueError('Input length must be 1 <= s1.length, s2.length <= 10^4')
+
+        for char in s1:
+            if not char.isalpha() or char != char.lower():
+                raise ValueError('Each character in a string (s1) must consist of lowercase English letters')
+
+        for char in s2:
+            if not char.isalpha() or char != char.lower():
+                raise ValueError('Each character in a string (s2) must consist of lowercase English letters')
 
         s1_arr, s2_arr = [0] * 26, [0] * 26
         for i in range(len(s1)):
