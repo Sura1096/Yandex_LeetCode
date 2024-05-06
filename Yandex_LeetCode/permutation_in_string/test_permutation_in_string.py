@@ -21,3 +21,10 @@ def test_positive_cases(s1, s2, expected_result):
                           ("qwerty", "qawsedrftgy", False)])
 def test_negative_cases(s1, s2, expected_result):
     assert sol.checkInclusion(s1, s2) == expected_result
+
+
+@pytest.mark.parametrize('s1, s2, expected_result',
+                         [("a", "ab", True),
+                          ("c", "a", False)])
+def test_boundary_cases(s1, s2, expected_result):
+    assert sol.checkInclusion(s1, s2) == expected_result
