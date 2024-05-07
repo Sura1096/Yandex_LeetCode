@@ -26,3 +26,25 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 400
 '''
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        prev = prev_prev = 0
+
+        for num in nums:
+            best = max(num + prev_prev, prev)
+            prev, prev_prev = best, prev
+        return max(prev, prev_prev)
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [1, 2, 3, 1]
+    print(sol.rob(nums))
+
+    nums = [2, 7, 9, 3, 1]
+    print(sol.rob(nums))
+
+    nums = [2, 1, 1, 2]
+    print(sol.rob(nums))
