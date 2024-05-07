@@ -48,10 +48,10 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
     nums = [2, 3, 2]
-    print(sol.helper(nums))
+    print(sol.rob(nums))
 
     nums = [1, 2, 3, 1]
-    print(sol.helper(nums))
+    print(sol.rob(nums))
 
     nums = [1, 2, 3]
-    print(sol.helper(nums))
+    print(sol.rob(nums))
