@@ -31,3 +31,16 @@ def test_negative_numbers(matrix, expected_result):
                           ([[0]], [[0]])])
 def test_boundary_cases(matrix, expected_result):
     assert sol.rotate(matrix) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, matrix',
+                         [(ValueError, []),
+                          (ValueError, [[]]),
+                          (ValueError, [[1, 2, 3], [1, 2, 3]]),
+                          (ValueError, [[1, 2, 3] * 21]),
+                          (ValueError, [[1, 2], [3, 4], [5, 6]]),
+                          (ValueError, [[1, 2, -10000], [2, 3, 4], [5, 6, 7]]),
+                          (ValueError, [[1, 2, 3], [4, 5, 6], [7, 8, 100000]])])
+def test_errors(expected_exception, matrix):
+    with pytest.raises(expected_exception):
+        sol.rotate(matrix)
