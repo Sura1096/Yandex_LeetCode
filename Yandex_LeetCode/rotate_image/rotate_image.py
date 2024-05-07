@@ -23,6 +23,14 @@ n == matrix.length == matrix[i].length
 
 class Solution:
     def rotate(self, matrix: List[List[int]]):
+        if len(matrix) < 1 or len(matrix) > 20:
+            raise ValueError('Input length must be 1 <= length <= 20')
+        for item in matrix:
+            if len(item) < len(matrix) or len(item) > len(matrix):
+                raise ValueError('Item length in matrix must equal to length of matrix')
+            for num in item:
+                if num < -1000 or num > 1000:
+                    raise ValueError('Each number in item of matrix list must be -1000 <= matrix[i][j] <= 1000')
         left, right = 0, len(matrix) - 1
 
         while left < right:
