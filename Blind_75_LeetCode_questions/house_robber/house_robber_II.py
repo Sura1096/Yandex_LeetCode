@@ -31,3 +31,27 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 1000
 '''
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        return max(nums[0], self.helper(nums[1:]), self.helper(nums[:-1]))
+
+    def helper(self, nums: List[int]) -> int:
+        prev_prev = prev = 0
+        for num in nums:
+            best = max(num + prev_prev, prev)
+            prev, prev_prev = best, prev
+        return prev
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [2, 3, 2]
+    print(sol.helper(nums))
+
+    nums = [1, 2, 3, 1]
+    print(sol.helper(nums))
+
+    nums = [1, 2, 3]
+    print(sol.helper(nums))
