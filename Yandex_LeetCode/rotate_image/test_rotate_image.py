@@ -23,3 +23,11 @@ def test_positive_numbers(matrix, expected_result):
                            [[-6, -12, -1, -3], [-8, -13, -2, -5], [-17, -14, -3, -7], [-11, -15, -4, -9]])])
 def test_negative_numbers(matrix, expected_result):
     assert sol.rotate(matrix) == expected_result
+
+
+@pytest.mark.parametrize('matrix, expected_result',
+                         [([[-1]], [[-1]]),
+                          ([[9]], [[9]]),
+                          ([[0]], [[0]])])
+def test_boundary_cases(matrix, expected_result):
+    assert sol.rotate(matrix) == expected_result
