@@ -36,3 +36,32 @@ Hints:
 - Can you try merging the overlapping intervals while inserting the new interval?
 - This can be done by comparing the end of the last interval with the start of the new interval and vice versa.
 '''
+
+
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        new_list = []
+
+        for i, item in enumerate(intervals):
+            if newInterval[1] < item[0]:
+                new_list.append(newInterval)
+                return new_list + intervals[i:]
+
+            elif newInterval[0] > item[1]:
+                new_list.append(item)
+
+            else:
+                newInterval = [min(newInterval[0], item[0]), max(newInterval[1], item[1])]
+        new_list.append(newInterval)
+        return new_list
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    intervals = [[1, 3], [6, 9]]
+    newInterval = [2, 5]
+    print(sol.insert(intervals, newInterval))
+
+    intervals = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+    newInterval = [4, 8]
+    print(sol.insert(intervals, newInterval))
