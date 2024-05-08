@@ -40,6 +40,8 @@ path is a valid absolute Unix path.
 
 class Solution:
     def simplifyPath(self, path: str) -> str:
+        if len(path) < 1 or len(path) > 3000:
+            raise ValueError('Input length must be 1 <= path.length <= 3000')
         files_name = []
         current_directory = ''
 
