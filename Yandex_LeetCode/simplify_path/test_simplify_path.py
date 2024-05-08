@@ -13,3 +13,10 @@ sol = Solution()
                           ("/.../a/../b/c/../d/./", "/.../b/d")])
 def test_positive_cases(path, expected_result):
     assert sol.simplifyPath(path) == expected_result
+
+
+@pytest.mark.parametrize('path, expected_result',
+                         [("/home", "/home"),
+                          ("/", "/")])
+def test_boundary_cases(path, expected_result):
+    assert sol.simplifyPath(path) == expected_result
