@@ -25,7 +25,7 @@ def test_boundary_cases(n, expected_result):
                          [(ValueError, 0),
                           (ValueError, -1),
                           (ValueError, 21),
-                          (ValueError, 'a')])
+                          (TypeError, 'a')])
 def test_errors(expected_exception, n):
     with pytest.raises(expected_exception):
         sol.generateMatrix(n)
