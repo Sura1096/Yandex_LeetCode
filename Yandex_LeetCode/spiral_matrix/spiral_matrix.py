@@ -24,6 +24,14 @@ n == matrix[i].length
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if len(matrix) < 1 or len(matrix) > 10:
+            raise ValueError('Input length must be 1 <= matrix.length <= 10')
+        for item in matrix:
+            if len(item) < 1 or len(item) > 10:
+                raise ValueError('Item length in a matrix must be 1 <= matrix[i].length <= 10')
+            for num in item:
+                if num < -100 or num > 100:
+                    raise ValueError('Numbers in a matrix must be -100 <= matrix[i][j] <= 100')
         lst = []
         L = T = 0
         R = len(matrix[0]) - 1
