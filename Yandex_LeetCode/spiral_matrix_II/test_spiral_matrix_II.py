@@ -21,3 +21,11 @@ def test_boundary_cases(n, expected_result):
     assert sol.generateMatrix(n)
 
 
+@pytest.mark.parametrize('expected_exception, n',
+                         [(ValueError, 0),
+                          (ValueError, -1),
+                          (ValueError, 21),
+                          (ValueError, 'a')])
+def test_errors(expected_exception, n):
+    with pytest.raises(expected_exception):
+        sol.generateMatrix(n)
