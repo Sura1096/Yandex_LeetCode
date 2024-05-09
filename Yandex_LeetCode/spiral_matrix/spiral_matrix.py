@@ -30,6 +30,8 @@ class Solution:
             if len(item) < 1 or len(item) > 10:
                 raise ValueError('Item length in a matrix must be 1 <= matrix[i].length <= 10')
             for num in item:
+                if not isinstance(num, int):
+                    raise ValueError('Element value inside the matrix must be numeric')
                 if num < -100 or num > 100:
                     raise ValueError('Numbers in a matrix must be -100 <= matrix[i][j] <= 100')
         lst = []
