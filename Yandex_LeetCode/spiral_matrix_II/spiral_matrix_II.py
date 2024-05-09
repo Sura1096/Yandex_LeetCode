@@ -54,7 +54,8 @@ class Solution:
         return matrix
 
 
-ins = Solution()
-print(ins.generateMatrix(3))
-print(ins.generateMatrix(4))
-print(ins.generateMatrix(1))
+if __name__ == '__main__':
+    ins = Solution()
+    print(ins.generateMatrix(3))
+    print(ins.generateMatrix(4))
+    print(ins.generateMatrix(1))
