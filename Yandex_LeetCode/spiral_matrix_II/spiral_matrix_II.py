@@ -21,6 +21,10 @@ Constraints:
 
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
+        if not isinstance(n, int):
+            raise ValueError('Input value must be numeric')
+        if n < 1 or n > 20:
+            raise ValueError('The value of n must be 1 <= n <= 20')
         matrix = [[0] * n for _ in range(n)]
         L = T = 0
         R = B = n - 1
