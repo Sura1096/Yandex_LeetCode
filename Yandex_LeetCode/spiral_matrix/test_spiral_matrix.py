@@ -30,3 +30,13 @@ def test_negative_numbers(matrix, expected_result):
     assert sol.spiralOrder(matrix) == expected_result
 
 
+@pytest.mark.parametrize('expected_exception, matrix',
+                         [(ValueError, []),
+                          (ValueError, [[1] * 11]),
+                          (ValueError, [[2]] * 11),
+                          (ValueError, [[]]),
+                          (ValueError, [[-101, -100], [-99, -98]]),
+                          (ValueError, [[99, 100], [101, 102]])])
+def test_errors(expected_exception, matrix):
+    with pytest.raises(expected_exception):
+        sol.spiralOrder(matrix)
