@@ -22,3 +22,11 @@ def test_boundary_cases(matrix, expected_result):
     assert sol.spiralOrder(matrix) == expected_result
 
 
+@pytest.mark.parametrize('matrix, expected_result',
+                         [([[-10, -9], [-8, -7], [-6, -5], [-4, -3]], [-10, -9, -7, -5, -3, -4, -6, -8]),
+                          ([[-5], [-4], [-3], [-2], [-1], [0]], [-5, -4, -3, -2, -1, 0]),
+                          ([[0]], [0])])
+def test_negative_numbers(matrix, expected_result):
+    assert sol.spiralOrder(matrix) == expected_result
+
+
