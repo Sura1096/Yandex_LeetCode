@@ -36,7 +36,8 @@ def test_negative_numbers(matrix, expected_result):
                           (ValueError, [[2]] * 11),
                           (ValueError, [[]]),
                           (ValueError, [[-101, -100], [-99, -98]]),
-                          (ValueError, [[99, 100], [101, 102]])])
+                          (ValueError, [[99, 100], [101, 102]]),
+                          (ValueError, [[1, 2, 3], [4, 5, 6], ['a', 8, 9]])])
 def test_errors(expected_exception, matrix):
     with pytest.raises(expected_exception):
         sol.spiralOrder(matrix)
