@@ -55,9 +55,19 @@ class Solution:
         return lst
 
 
-obj = Solution()
-print(obj.spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]))
-print(obj.spiralOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
-print(obj.spiralOrder([[1], [4]]))
-print(obj.spiralOrder([[1, 2]]))
-print(obj.spiralOrder([[1], [4], [6]]))
+if __name__ == '__main__':
+    obj = Solution()
+    matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+    print(obj.spiralOrder(matrix))
+
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    print(obj.spiralOrder(matrix))
+
+    matrix = [[1], [4]]
+    print(obj.spiralOrder(matrix))
+
+    matrix = [[1, 2]]
+    print(obj.spiralOrder(matrix))
+
+    matrix = [[1], [4], [6]]
+    print(obj.spiralOrder(matrix))
