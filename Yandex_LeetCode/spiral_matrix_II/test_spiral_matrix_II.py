@@ -15,3 +15,9 @@ def test_positive_cases(n, expected_result):
     assert sol.generateMatrix(n)
 
 
+@pytest.mark.parametrize('n, expected_result',
+                         [(1, [[1]])])
+def test_boundary_cases(n, expected_result):
+    assert sol.generateMatrix(n)
+
+
