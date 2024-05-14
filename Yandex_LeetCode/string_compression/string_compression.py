@@ -59,11 +59,22 @@ class Solution:
         return len(chars[:len(s)])
 
 
-sol = Solution()
-print(sol.compress(["a"]))
-print(sol.compress(["a", "a", "b", "b", "c"]))
-print(sol.compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]))
-print(sol.compress(['a', 'a', 'b', 'b', 'b', 'a', 'a', 'c', 'c']))
-print(sol.compress(['1', '1', '2', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '4', '5', '6',
-                    '6']))
-print(sol.compress(["a", "a", "a", "b", "b", "a", "a"]))
+if __name__ == '__main__':
+    sol = Solution()
+    chars = ["a"]
+    print(sol.compress(chars))
+
+    chars = ["a", "a", "b", "b", "c"]
+    print(sol.compress(chars))
+
+    chars = ["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]
+    print(sol.compress(chars))
+
+    chars = ['a', 'a', 'b', 'b', 'b', 'a', 'a', 'c', 'c']
+    print(sol.compress(chars))
+
+    chars = ['1', '1', '2', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '4', '5', '6', '6']
+    print(sol.compress(chars))
+
+    chars = ["a", "a", "a", "b", "b", "a", "a"]
+    print(sol.compress(chars))
