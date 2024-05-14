@@ -29,6 +29,11 @@ could you find an O(n) solution using a different approach?
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
+        if len(nums) < 1 or len(nums) > 10**4:
+            raise ValueError('Input length must be 1 <= nums.length <= 10^4')
+        for num in nums:
+            if num < -10**4 or num > 10**4:
+                raise ValueError('Item value must be -10^4 <= nums[i] <= 10^4')
         dp = [0] * len(nums)
         start = 0
         end = len(nums) - 1
