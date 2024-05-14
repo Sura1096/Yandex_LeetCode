@@ -39,6 +39,8 @@ How do you know if you are at the end of a consecutive group of characters?
 
 class Solution:
     def compress(self, chars: List[str]) -> int:
+        if len(chars) < 1 or len(chars) > 2000:
+            raise ValueError('Input length must be 1 <= chars.length <= 2000')
         s = '' + chars[0]
         start = 0
 
