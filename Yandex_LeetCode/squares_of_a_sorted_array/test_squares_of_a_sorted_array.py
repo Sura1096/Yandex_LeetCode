@@ -17,7 +17,9 @@ def test_positive_cases(nums, expected_result):
                          [([-4], [16]),
                           ([2, 3, 11], [4, 9, 121]),
                           ([-10, -4, -1, 10, 11], [1, 16, 100, 100, 121]),
-                          ([7], [49])])
+                          ([7], [49]),
+                          ([-1, -1, -1, 1, 1, 1], [1, 1, 1, 1, 1, 1]),
+                          ([0], [0])])
 def test_boundary_cases(nums, expected_result):
     assert sol.sortedSquares(nums) == expected_result
 
