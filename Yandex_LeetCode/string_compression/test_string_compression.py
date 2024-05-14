@@ -21,3 +21,11 @@ def test_positive_cases(chars, expected_result):
                           ([" ", " ", "a", "a", "a"], 4)])
 def test_boundary_cases(chars, expected_result):
     assert sol.compress(chars) == expected_result
+
+
+@pytest.mark.parametrize('expected_exception, chars',
+                         [(ValueError, []),
+                          (ValueError, ["a"] * 2001)])
+def test_errors(expected_exception, chars):
+    with pytest.raises(expected_exception):
+        sol.compress(chars)
