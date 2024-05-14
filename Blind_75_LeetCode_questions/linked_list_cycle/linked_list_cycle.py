@@ -42,15 +42,10 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        if head is None:
-            return False
-        temp = {head: 0}
-        ind = 0
-        head = head.next
-        while head:
-            ind += 1
-            if head.next in temp and ind > temp[head.next]:
-                return True
-            temp[head] = ind
+        fast = head
+        while fast and fast.next:
             head = head.next
+            fast = fast.next.next
+            if head is fast:
+                return True
         return False
