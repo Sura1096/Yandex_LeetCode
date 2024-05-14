@@ -32,3 +32,25 @@ pos is -1 or a valid index in the linked-list.
 
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
 '''
+
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        if head is None:
+            return False
+        temp = {head: 0}
+        ind = 0
+        head = head.next
+        while head:
+            ind += 1
+            if head.next in temp and ind > temp[head.next]:
+                return True
+            temp[head] = ind
+            head = head.next
+        return False
