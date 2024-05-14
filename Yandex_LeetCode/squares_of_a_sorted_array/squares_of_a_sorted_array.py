@@ -46,8 +46,10 @@ class Solution:
         return dp
 
 
-sol = Solution()
-nums_list = [-4, -1, 0, 3, 10]
-print(sol.sortedSquares(nums_list))
-nums_list = [-7, -3, 2, 3, 11]
-print(sol.sortedSquares(nums_list))
+if __name__ == '__main__':
+    sol = Solution()
+    nums_list = [-4, -1, 0, 3, 10]
+    print(sol.sortedSquares(nums_list))
+
+    nums_list = [-7, -3, 2, 3, 11]
+    print(sol.sortedSquares(nums_list))
