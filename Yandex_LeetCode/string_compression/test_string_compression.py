@@ -13,3 +13,11 @@ sol = Solution()
                           (["a", "a", "a", "b", "b", "a", "a"], 6)])
 def test_positive_cases(chars, expected_result):
     assert sol.compress(chars) == expected_result
+
+
+@pytest.mark.parametrize('chars, expected_result',
+                         [(["a"], 1),
+                          (["a", "a", "a", "a", "a"], 2),
+                          ([" ", " ", "a", "a", "a"], 4)])
+def test_boundary_cases(chars, expected_result):
+    assert sol.compress(chars) == expected_result
