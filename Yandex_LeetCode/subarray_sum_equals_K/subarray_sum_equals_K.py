@@ -50,6 +50,12 @@ class Solution:
         return count
 
 
-sol = Solution()
-print(sol.subarraySum([1, 1, 1], 2))
-print(sol.subarraySum([1, 2, 3], 3))
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [1, 1, 1]
+    k = 2
+    print(sol.subarraySum(nums, k))
+
+    nums = [1, 2, 3]
+    k = 3
+    print(sol.subarraySum(nums, k))
