@@ -29,3 +29,15 @@ def test_boundary_cases(nums, k, expected_result):
     assert sol.subarraySum(nums, k) == expected_result
 
 
+@pytest.mark.parametrize('expected_exception, nums, k',
+                         [(ValueError, [], 2),
+                          (ValueError, [1] * (3 * 10**4), 3),
+                          (TypeError, [1, 2, 3, 4], 'a'),
+                          (ValueError, [1, 2, 3, 4], 3 * (-10**7)),
+                          (ValueError, [1, 2], 2 * 10**7),
+                          (TypeError, [1, 2, 3, 'a', 4, 5], 5),
+                          (ValueError, [1, 2, 3, 4 * (-1000), 5], 67),
+                          (ValueError, [1, 2, 4, 9 * 1000], 4)])
+def test_errors(expected_exception, nums, k):
+    with pytest.raises(expected_exception):
+        sol.subarraySum(nums, k)
