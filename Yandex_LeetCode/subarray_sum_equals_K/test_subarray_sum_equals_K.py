@@ -21,3 +21,11 @@ def test_negative_nums(nums, k, expected_result):
     assert sol.subarraySum(nums, k) == expected_result
 
 
+@pytest.mark.parametrize('nums, k, expected_result',
+                         [([-1], 0, 0),
+                          ([0], 0, 1),
+                          ([1, 2, 3, 4, 5, 6], 17, 0)])
+def test_boundary_cases(nums, k, expected_result):
+    assert sol.subarraySum(nums, k) == expected_result
+
+
