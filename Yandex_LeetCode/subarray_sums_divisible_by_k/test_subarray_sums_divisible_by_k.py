@@ -19,3 +19,13 @@ def test_positive_numbers(nums, k, expected_result):
                           ([3, -1, -2, 5, 6], 4, 2)])
 def test_negative_numbers(nums, k, expected_result):
     assert sol.subarraysDivByK(nums, k) == expected_result
+
+
+@pytest.mark.parametrize('nums, k, expected_result',
+                         [([5], 9, 0),
+                          ([2, 2, 2, 2, 2], 2, 15),
+                          ([-10, 10, -10, 10], 5, 10),
+                          ([0, 0, 0, 0], 5, 10),
+                          ([1, 2, 3], 1000, 0)])
+def test_boundary_cases(nums, k, expected_result):
+    assert sol.subarraysDivByK(nums, k) == expected_result
