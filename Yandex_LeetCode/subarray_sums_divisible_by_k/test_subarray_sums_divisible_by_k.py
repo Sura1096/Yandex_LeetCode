@@ -13,3 +13,12 @@ sol = Solution()
                           ([5, 10, 15, 20, 25], 5, 15)])
 def test_positive_numbers(nums, k, expected_result):
     assert sol.subarraysDivByK(nums, k) == expected_result
+
+
+@pytest.mark.parametrize('nums, k, expected_result',
+                         [([4, 5, 0, -2, -3, 1], 5, 7),
+                          ([-1, 2, 9, -3, 7, 1], 5, 4),
+                          ([3, -1, -2, 5, 6], 4, 2),
+                          ([-10, 10, -10, 10], 5, 10)])
+def test_negative_numbers(nums, k, expected_result):
+    assert sol.subarraysDivByK(nums, k) == expected_result
