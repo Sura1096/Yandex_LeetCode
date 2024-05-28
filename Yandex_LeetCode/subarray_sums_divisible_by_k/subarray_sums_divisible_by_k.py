@@ -26,6 +26,18 @@ Constraints:
 
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        if len(nums) < 1 or len(nums) > 3 * 10**4:
+            raise ValueError('Length of the nums list must be 1 <= nums.length <= 3 * 10^4')
+        if not isinstance(k, int):
+            raise TypeError('Value of k variable must be an integer')
+        if k < 2 or k > 10**4:
+            raise ValueError('Value of k variable must be 2 <= k <= 10^4')
+        for num in nums:
+            if not isinstance(num, int):
+                raise TypeError('Value of an item in a list must be an integer')
+            if num < -10**4 or num > 10**4:
+                raise ValueError('Value of an item in a list must be -10^4 <= nums[i] <= 10^4')
+
         prefix_sum = 0
         subarray_count = 0
         dct = {0: 1}
