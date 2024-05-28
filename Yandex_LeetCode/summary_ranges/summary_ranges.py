@@ -40,6 +40,18 @@ nums is sorted in ascending order.
 
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
+        if len(nums) > 20:
+            raise ValueError('Input length must be 0 <= nums.length <= 20')
+        for num in nums:
+            if not isinstance(num, int):
+                raise TypeError('Item in a list must be an integer')
+            if not -2**31 <= num <= 2**31 - 1:
+                raise ValueError('Item value in a list must be -2^31 <= nums[i] <= 2^31 - 1')
+        if not len(nums) == len(set(nums)):
+            raise ValueError('All the values of nums must be unique.')
+        if not nums == sorted(nums):
+            raise ValueError('Nums must be sorted in ascending order.')
+
         if len(nums) == 0:
             return nums
         else:
