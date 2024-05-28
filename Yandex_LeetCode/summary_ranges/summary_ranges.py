@@ -62,11 +62,22 @@ class Solution:
             return new_list
 
 
-# test cases
-sol = Solution()
-print(sol.summaryRanges(nums=[0, 1, 2, 4, 5, 7]))
-print(sol.summaryRanges(nums=[0, 2, 3, 4, 6, 8, 9]))
-print(sol.summaryRanges(nums=[0, 1, 2, 3, 4]))
-print(sol.summaryRanges(nums=[0]))
-print(sol.summaryRanges(nums=[]))
-print(sol.summaryRanges(nums=[-2147483648, -2147483647, 2147483647]))
+if __name__ == '__main__':
+    sol = Solution()
+    nums = [0, 1, 2, 4, 5, 7]
+    print(sol.summaryRanges(nums))
+
+    nums = [0, 2, 3, 4, 6, 8, 9]
+    print(sol.summaryRanges(nums))
+
+    nums = [0, 1, 2, 3, 4]
+    print(sol.summaryRanges(nums))
+
+    nums = [0]
+    print(sol.summaryRanges(nums))
+
+    nums = []
+    print(sol.summaryRanges(nums))
+
+    nums = [-2147483648, -2147483647, 2147483647]
+    print(sol.summaryRanges(nums))
