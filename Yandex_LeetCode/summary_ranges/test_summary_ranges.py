@@ -11,3 +11,12 @@ sol = Solution()
                           ([1, 2, 3, 4, 5], ['1->5'])])
 def test_positive_numbers(nums, expected_result):
     assert sol.summaryRanges(nums) == expected_result
+
+
+@pytest.mark.parametrize('nums, expected_result',
+                         [([-5, -4], ['-5->-4']),
+                          ([-7, -3], ['-7', '-3']),
+                          ([-4, -3, -2, -1], ['-4->-1']),
+                          ([-6, -4, -3, -1], ['-6', '-4->-3', '-1'])])
+def test_negative_numbers(nums, expected_result):
+    assert sol.summaryRanges(nums) == expected_result
