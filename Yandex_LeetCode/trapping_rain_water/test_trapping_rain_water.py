@@ -14,3 +14,15 @@ sol = Solution()
                           ([0, 1, 0, 2, 0, 3, 0, 4], 6)])
 def test_positive_cases(height, expected_result):
     assert sol.trap(height) == expected_result
+
+
+@pytest.mark.parametrize('height, expected_result',
+                         [([1], 0),
+                          ([0, 0, 0, 0], 0),
+                          ([1, 2, 3, 4, 5], 0),
+                          ([2, 2], 0),
+                          ([2, 0, 2], 2)])
+def test_boundary_cases(height, expected_result):
+    assert sol.trap(height) == expected_result
+
+
