@@ -24,6 +24,13 @@ n == height.length
 
 class Solution:
     def trap(self, height: List[int]) -> int:
+        if not 1 <= len(height) <= 2 * 10**4:
+            raise ValueError('Input length must be 1 <= height.length <= 2 * 10^4.')
+        for h in height:
+            if not isinstance(h, int):
+                raise TypeError('Item in a list must be an integer.')
+            if not 0 <= h <= 10**5:
+                raise ValueError('Item value must be 0 <= height[i] <= 10^5')
         max_height = 0
         for i in range(len(height)):
             if height[i] > height[max_height]:
