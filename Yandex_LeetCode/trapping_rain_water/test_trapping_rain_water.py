@@ -26,3 +26,12 @@ def test_boundary_cases(height, expected_result):
     assert sol.trap(height) == expected_result
 
 
+@pytest.mark.parametrize('expected_exception, height',
+                         [(ValueError, []),
+                          (ValueError, [2] * 3 * 10**4),
+                          (TypeError, [1, 2, 0, 5, 'a', 9, 1]),
+                          (ValueError, [8, 1, -1, 4, 1]),
+                          (ValueError, [1, 2, 3, 4, 5*10**5])])
+def test_errors(expected_exception, height):
+    with pytest.raises(expected_exception):
+        sol.trap(height)
